@@ -57,11 +57,11 @@ funcdef       {type}{ws}{id}\({expression}\)
 
 %%
 {ws}          {/* Do nothing */}
-{syslib}      {libraries++;return(T_SYSLIB);}
-{userlib}     {libraries++;return(T_USERLIB);}
+{syslib}      {libraries++; return(T_SYSLIB);}
+{userlib}     {libraries++; return(T_USERLIB);}
 {macrdef}     {return(T_MACRDEF);}
-{forfuncdecl} {fwfuncdecls++;return(T_FORFUNCDECL);}
-{funcdef}     {fundefs++;return(T_FUNCDEF);}
+{forfuncdecl} {fwfuncdecls++; return(T_FORFUNCDECL);}
+{funcdef}     {fundefs++; return(T_FUNCDEF);}
 {newline}     {/*Do nothing*/}
 .             {/*Do nothing*/}
 %%
@@ -71,7 +71,7 @@ int main(int argc, char** argv) {
     int token;
     ++argv, --argc;  /* skip over program name */
     if (argc > 0) {
-        yyin = fopen( argv[0], "r" );
+        yyin = fopen(argv[0], "r" );
     } else {
         yyin = stdin;
     }
