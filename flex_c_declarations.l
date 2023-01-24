@@ -33,7 +33,6 @@
 int libraries = 0;
 int fwfuncdecls = 0;
 int fundefs = 0;
-
 %}
 
 ws [ \t]+
@@ -57,37 +56,42 @@ forfuncdecl {type}{ws}{id}\({expression}\)\;
 funcdef {type}{ws}{id}\({expression}\)
 
 %%
-
-{ws}   	{/* Do nothing */}
-{syslib} {libraries++;return(T_SYSLIB);}
-{userlib} {libraries++;return(T_USERLIB);}
-{macrdef} {return(T_MACRDEF);}
+{ws}          {/* Do nothing */}
+{syslib}      {libraries++;return(T_SYSLIB);}
+{userlib}     {libraries++;return(T_USERLIB);}
+{macrdef}     {return(T_MACRDEF);}
 {forfuncdecl} {fwfuncdecls++;return(T_FORFUNCDECL);}
-{funcdef} {fundefs++;return(T_FUNCDEF);}
-{newline} {/*Do nothing*/}
-.     {/*Do nothing*/}
-
+{funcdef}     {fundefs++;return(T_FUNCDEF);}
+{newline}     {/*Do nothing*/}
+.             {/*Do nothing*/}
 %%
 
 /* Code that takes a filename as an argument */ 
-int main(int argc, char ** argv )
-{   
-	int token;
-	++argv, --argc;  /* skip over program name */
-   	if ( argc > 0 ){yyin = fopen( argv[0], "r" );}
-   	else {yyin = stdin;}
-	
-	while ((token=yylex()) != 0)
-	{
-		if(token==250){printf("System Library: %s\n",yytext);}
-		else if(token==251){printf("User Library: %s\n",yytext);}
-		else if(token==252){printf("Macro definition: %s\n",yytext);}
-		else if(token==253){printf("Forward Function Declaration: %s\n",yytext);}
-		else if(token==254){printf("Function Definition: %s\n",yytext);}	
-	}
+int main(int argc, char ** argv ) {
+    int token;
+    ++argv, --argc;  /* skip over program name */
+       if (argc > 0) {
+           yyin = fopen( argv[0], "r" );
+       } else {
+           yyin = stdin;
+       }
 
-	printf("%d Libraries are included in file.\n",libraries);
-	printf("There are %d fw function declarations and %d fun defs.\n",fwfuncdecls,fundefs);
+    while((token=yylex()) != 0) {
+        if(token == 250) {
+            printf("System Library: %s\n", yytext);
+        } else if(token == 251) {
+            printf("User Library: %s\n", yytext);
+        } else if(token == 252) {
+            printf("Macro definition: %s\n", yytext);
+        } else if(token == 253) {
+            printf("Forward Function Declaration: %s\n" ,yytext);
+        } else if(token == 254) {
+            printf("Function Definition: %s\n", yytext);
+        }
+    }
+
+    printf("%d Libraries are included in file.\n", libraries);
+    printf("There are %d fw function declarations and %d fun defs.\n", fwfuncdecls, fundefs);
 
     return 0;
 }
