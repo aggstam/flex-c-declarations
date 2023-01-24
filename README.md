@@ -1,6 +1,6 @@
 # flex-C-declarations
 
-Simple flex program to display all the declarions of a C code file.
+Simple Flex program producing the corresponding C code to display all the declarions of another C code file.
 <br>
 These include:
 - System libraries

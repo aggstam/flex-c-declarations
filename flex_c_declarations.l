@@ -1,7 +1,7 @@
 // -------------------------------------------------------------
 //
-// This flex program produces the corresponding C code to display
-// all the declarions of a C code file.
+// This Flex program produces the corresponding C code to display
+// all the declarions of another C code file.
 //
 // Author: Aggelos Stamatiou, May 2017
 //
