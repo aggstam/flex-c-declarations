@@ -67,7 +67,7 @@ funcdef       {type}{ws}{id}\({expression}\)
 %%
 
 /* Code that takes a filename as an argument */ 
-int main(int argc, char** argv ) {
+int main(int argc, char** argv) {
     int token;
     ++argv, --argc;  /* skip over program name */
     if (argc > 0) {
