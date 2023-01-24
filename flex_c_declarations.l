@@ -35,25 +35,25 @@ int fwfuncdecls = 0;
 int fundefs = 0;
 %}
 
-ws [ \t]+
-newline \n|\x0A|\x0D\x0A
-digit (0|[0-9]) 
-integers {digit}+
-floats  {integers}(\.{integers})
-letter [A-Za-z]
-id {letter}+(_|{letter})*
-type {id}
-pointer \*
-table \[\]
-variable {pointer}?{id}({id}|{digit})*|{id}({id}|{digit})*{table}{0,2}
-incl #include
-def #define
-syslib  {incl}{ws}<{id}.h>
-userlib {incl}{ws}\"{id}.h\"
-macrdef {def}{ws}{variable}{ws}({integers}|{floats})
-expression {type}{ws}{variable}(\,{ws}{type}{ws}{variable})*
-forfuncdecl {type}{ws}{id}\({expression}\)\;
-funcdef {type}{ws}{id}\({expression}\)
+ws            [ \t]+
+newline       \n|\x0A|\x0D\x0A
+digit         (0|[0-9])
+integers      {digit}+
+floats        {integers}(\.{integers})
+letter        [A-Za-z]
+id            {letter}+(_|{letter})*
+type          {id}
+pointer       \*
+table         \[\]
+variable      {pointer}?{id}({id}|{digit})*|{id}({id}|{digit})*{table}{0,2}
+incl          #include
+def           #define
+syslib        {incl}{ws}<{id}.h>
+userlib       {incl}{ws}\"{id}.h\"
+macrdef       {def}{ws}{variable}{ws}({integers}|{floats})
+expression    {type}{ws}{variable}(\,{ws}{type}{ws}{variable})*
+forfuncdecl   {type}{ws}{id}\({expression}\)\;
+funcdef       {type}{ws}{id}\({expression}\)
 
 %%
 {ws}          {/* Do nothing */}
