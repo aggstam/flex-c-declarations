@@ -70,11 +70,11 @@ funcdef       {type}{ws}{id}\({expression}\)
 int main(int argc, char ** argv ) {
     int token;
     ++argv, --argc;  /* skip over program name */
-       if (argc > 0) {
-           yyin = fopen( argv[0], "r" );
-       } else {
-           yyin = stdin;
-       }
+    if (argc > 0) {
+        yyin = fopen( argv[0], "r" );
+    } else {
+        yyin = stdin;
+    }
 
     while((token=yylex()) != 0) {
         if(token == 250) {
