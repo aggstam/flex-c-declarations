@@ -1,23 +1,23 @@
-// -------------------------------------------------------------
-//
-// This Flex program produces the corresponding C code to display
-// all the declarions of another C code file.
-//
-// Author: Aggelos Stamatiou, May 2017
-//
-// This source code is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// This software is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with this source code. If not, see <http://www.gnu.org/licenses/>.
-// --------------------------------------------------------------
+/* -------------------------------------------------------------------------*/
+/*                                                                          */
+/* This Flex program produces the corresponding C code to display           */
+/* all the declarions of another C code file.                               */
+/*                                                                          */
+/* Author: Aggelos Stamatiou, May 2017                                      */
+/*                                                                          */
+/* This source code is free software: you can redistribute it and/or modify */
+/* it under the terms of the GNU General Public License as published by     */
+/* the Free Software Foundation, either version 3 of the License, or        */
+/* (at your option) any later version.                                      */
+/*                                                                          */
+/* This software is distributed in the hope that it will be useful,         */
+/* but WITHOUT ANY WARRANTY; without even the implied warranty of           */
+/* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the            */
+/* GNU General Public License for more details.                             */
+/*                                                                          */
+/* You should have received a copy of the GNU General Public License        */
+/* along with this source code. If not, see <http://www.gnu.org/licenses/>. */
+/* -------------------------------------------------------------------------*/
 
 %{
 #define T_SYSLIB 250
@@ -89,4 +89,5 @@ int main(int argc, char ** argv )
 	printf("%d Libraries are included in file.\n",libraries);
 	printf("There are %d fw function declarations and %d fun defs.\n",fwfuncdecls,fundefs);
 
+    return 0;
 }
