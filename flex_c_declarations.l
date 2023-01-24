@@ -20,19 +20,19 @@
 /* -------------------------------------------------------------------------*/
 
 %{
-#define T_SYSLIB 250
-#define T_USERLIB 251
-#define T_MACRDEF 252
+#define T_SYSLIB      250
+#define T_USERLIB     251
+#define T_MACRDEF     252
 #define T_FORFUNCDECL 253
-#define T_FUNCDEF 254
+#define T_FUNCDEF     254
 
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
 
-int libraries = 0;
+int libraries   = 0;
 int fwfuncdecls = 0;
-int fundefs = 0;
+int fundefs     = 0;
 %}
 
 ws            [ \t]+
