@@ -12,13 +12,13 @@ Compilation and tests execution is streamline via a Makefile.
 <br>
 Two test C code files have been provided to play with.
 
-# Usage
+## Usage
 ```
 % make
 ```
 Makefile can be configured to use a different test case set and/or files.
 
-# Execution example
+## Execution example
 ```
 ❯ make
 flex -o flex_c_declarations.c flex_c_declarations.l
