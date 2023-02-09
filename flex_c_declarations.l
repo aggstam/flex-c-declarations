@@ -67,9 +67,12 @@ funcdef       {type}{ws}{id}\({expression}\)
 %%
 
 /* Code that takes a filename as an argument */ 
-int main(int argc, char** argv) {
+int main(int argc, char **argv)
+{
     int token;
-    ++argv, --argc;  /* skip over program name */
+
+    /* skip over program name */
+    ++argv, --argc;
     if (argc > 0) {
         yyin = fopen(argv[0], "r" );
     } else {
