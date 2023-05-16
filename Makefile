@@ -12,3 +12,5 @@ all:
 
 clean:
 	rm -f $(OUTPUT) $(GCC_OUTPUT)
+
+.PHONY: all clean
